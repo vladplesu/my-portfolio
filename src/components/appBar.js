@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import MyDrawer from './drawer';
+import Link from '@material-ui/core/Link';
 
 const styles = {
   root: {
@@ -40,9 +41,11 @@ class MyAppBar extends React.Component {
             <IconButton className={classes.menuButton} onClick={this.toggleDrawer('left', true)} color="inherit" aria-label="Menu">
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit">
-                    vPl
-            </Typography>
+            <Link href="/" color="inherit" underline="none">
+              <Typography variant="h4" color="inherit">
+                vPl
+              </Typography>
+            </Link>
           </Toolbar>
         </AppBar>
       </div>
