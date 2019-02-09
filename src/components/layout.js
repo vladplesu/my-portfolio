@@ -24,6 +24,7 @@ function Layout(props) {
 
 Layout.propTypes = {
   classes: PropTypes.object.isRequired,
+  children: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Layout);

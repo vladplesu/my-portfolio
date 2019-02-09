@@ -6,7 +6,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Drawer } from '@material-ui/core';
 import MyDrawer from './drawer';
 
 const styles = {
@@ -19,24 +18,36 @@ const styles = {
   },
 };
 
-function MyAppBar(props) {
-  const { classes } = props;
+class MyAppBar extends React.Component {
+  state = {
+    left: false,
+  };
 
-  return (
-    <div className={classes.root}>
-      <AppBar position="static" color="primary">
-        <Toolbar>
-          <MyDrawer />
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit">
+  toggleDrawer = (side, open) => () => {
+    this.setState({
+      [side]: open,
+    });
+  };
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.root}>
+        <AppBar position="static" color="primary">
+          <Toolbar>
+            <MyDrawer isOpen={this.state.left}/>
+            <IconButton className={classes.menuButton} onClick={this.toggleDrawer('left', true)} color="inherit" aria-label="Menu">
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" color="inherit">
                     vPl
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 MyAppBar.propTypes = {

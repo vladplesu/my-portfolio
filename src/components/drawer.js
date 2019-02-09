@@ -17,6 +17,7 @@ const styles = {
 
 function MyDrawer(props) {
   const { classes } = props;
+  const { isOpen } = props;
 
   const sideList = (
     <div className={classes.list}>
@@ -32,7 +33,7 @@ function MyDrawer(props) {
 
   return (
     <div>
-      <Drawer open>
+      <Drawer open={isOpen}>
         {sideList}
       </Drawer>
     </div>
@@ -42,6 +43,7 @@ function MyDrawer(props) {
 
 MyDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
+  isOpen: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(MyDrawer);
