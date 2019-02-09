@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MyDrawer from './drawer';
 import Link from '@material-ui/core/Link';
 
-const styles = {
+const styles = theme => ({
   root: {
     flexGrow: 1,
   },
@@ -17,7 +17,11 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
-};
+  logo: {
+    border: '3px solid white',
+    padding: theme.spacing.unit * 0.5,
+  }
+});
 
 class MyAppBar extends React.Component {
   state = {
@@ -42,7 +46,7 @@ class MyAppBar extends React.Component {
               <MenuIcon />
             </IconButton>
             <Link href="/" color="inherit" underline="none">
-              <Typography variant="h4" color="inherit">
+              <Typography className={classes.logo} variant="h4" color="inherit">
                 vPl
               </Typography>
             </Link>

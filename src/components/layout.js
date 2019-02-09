@@ -15,7 +15,7 @@ function Layout(props) {
 
   return (
     <div className={classes.root}>
-      <Grid container>
+      <Grid container direction="column">
         {children}
       </Grid>
     </div>
