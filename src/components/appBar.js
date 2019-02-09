@@ -36,7 +36,7 @@ class MyAppBar extends React.Component {
       <div className={classes.root}>
         <AppBar position="static" color="primary">
           <Toolbar>
-            <MyDrawer isOpen={this.state.left}/>
+            <MyDrawer isOpen={this.state.left} isClosed={this.toggleDrawer('left', false)}/>
             <IconButton className={classes.menuButton} onClick={this.toggleDrawer('left', true)} color="inherit" aria-label="Menu">
               <MenuIcon />
             </IconButton>
