@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
+import { loadCSS } from 'fg-loadcss/src/loadCSS';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -25,50 +28,70 @@ const styles = theme => ({
   listItem: {
     textAlign: 'center',
   },
+  icon: {
+    margin: 0,
+  },
+  media: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+  },
 });
 
-function MyDrawer(props) {
-  const { classes } = props;
-  const { isOpen } = props;
-  const { isClosed } = props;
+class MyDrawer extends React.Component {
+  componentDidMount() {
+    loadCSS('https://use.fontawesome.com/releases/v5.1.0/css/all.css');
+  }
 
-  const sideList = (
-    <div className={classes.list}>
-      <Typography className={classes.title} variant="h4" color="textPrimary" align="center">
-        Vlad Plesu
-      </Typography>
-      <Typography className={classes.subtitle} variant="subtitle1" color="textSecondary" align="center">
-        Front-end Developer
-      </Typography>
-      <Divider variant="middle" />
-      <List>
-        {['About', 'Experience', 'Skills', 'Education', 'Portfolio', 'Contact'].map((text, _index) => (
-          <ListItem button key={text}>
-            <ListItemText className={classes.listItem}>
-              <Link href={'#'.concat(text.toLowerCase())} underline="none" color="textPrimary">
-                {text}
-              </Link>
-            </ListItemText>
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
+  render() {
+    const { classes } = this.props;
+    const { isOpen } = this.props;
+    const { isClosed } = this.props;
 
-  return (
-    <div>
-      <Drawer open={isOpen} onClose={isClosed}>
-        <div
-          tabIndex={0}
-          role="button"
-          onClick={isClosed}
-          onKeyDown={isClosed}
-        >
-          {sideList}
-        </div>
-      </Drawer>
-    </div>
-  );
+    const sideList = (
+      <div className={classes.list}>
+        <List>
+          {['About', 'Experience', 'Skills', 'Education', 'Portfolio', 'Contact'].map((text, _index) => (
+            <ListItem button key={text}>
+              <ListItemText className={classes.listItem}>
+                <Link href={'#'.concat(text.toLowerCase())} underline="none" color="textPrimary">
+                  {text}
+                </Link>
+              </ListItemText>
+            </ListItem>
+          ))}
+        </List>
+      </div>
+    );
+
+    return (
+      <div>
+        <Drawer open={isOpen} onClose={isClosed}>
+          <Typography className={classes.title} variant="h4" color="textPrimary" align="center">
+          Vlad Plesu
+          </Typography>
+          <Typography className={classes.subtitle} variant="subtitle1" color="textSecondary" align="center">
+          Front-end Developer
+          </Typography>
+          <Divider variant="middle" />
+          <div
+            tabIndex={0}
+            role="button"
+            onClick={isClosed}
+            onKeyDown={isClosed}
+          >
+            {sideList}
+          </div>
+          <Divider variant="middle" />
+          <div className={classes.media}>
+            <IconButton className={classNames(classes.icon, 'fas fa-at')} color="primary" />
+            <IconButton className={classNames(classes.icon, 'fab fa-linkedin')} color="primary" />
+            <IconButton className={classNames(classes.icon, 'fab fa-github')} color="primary" />
+          </div>
+        </Drawer>
+      </div>
+    );
+  }
 }
 
 
