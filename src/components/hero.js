@@ -19,6 +19,9 @@ const styles = theme => ({
     color: 'white',
     marginRight: theme.spacing.unit * 2,
   },
+  upper: {
+    textTransform: 'uppercase',
+  },
 });
 
 function Hero(props) {
@@ -26,10 +29,16 @@ function Hero(props) {
 
   return (
     <div className={classes.root} color="primary">
-      <Typography className={classes.title} variant="h1" color="primary">
+      <Typography className={classes.title} variant="h3" color="primary">
         Vlad Plesu
       </Typography>
-      <Typography className={classes.title} variant="h2" color="secondary" gutterBottom>
+      <Typography
+        className={classes.title}
+        variant="h2"
+        color="primary"
+        gutterBottom
+        classes={{ h2: classes.upper }}
+      >
         Front-End Developer
       </Typography>
     </div>

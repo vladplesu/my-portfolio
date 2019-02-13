@@ -51,7 +51,7 @@ class MyDrawer extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-          {['About', 'Experience', 'Skills', 'Education', 'Portfolio', 'Contact'].map((text, _index) => (
+          {['About', 'Experience', 'Skills', 'Education', 'Portfolio', 'Contact'].map(text => (
             <ListItem button key={text}>
               <ListItemText className={classes.listItem}>
                 <Link href={'#'.concat(text.toLowerCase())} underline="none" color="textPrimary">
@@ -68,18 +68,18 @@ class MyDrawer extends React.Component {
       <div>
         <Drawer open={isOpen} onClose={isClosed}>
           <Typography className={classes.title} variant="h4" color="textPrimary" align="center">
-          Vlad Plesu
+            Vlad Plesu
           </Typography>
-          <Typography className={classes.subtitle} variant="subtitle1" color="textSecondary" align="center">
-          Front-end Developer
+          <Typography
+            className={classes.subtitle}
+            variant="subtitle1"
+            color="textSecondary"
+            align="center"
+          >
+            Front-end Developer
           </Typography>
           <Divider variant="middle" />
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={isClosed}
-            onKeyDown={isClosed}
-          >
+          <div tabIndex={0} role="button" onClick={isClosed} onKeyDown={isClosed}>
             {sideList}
           </div>
           <Divider variant="middle" />
@@ -93,7 +93,6 @@ class MyDrawer extends React.Component {
     );
   }
 }
-
 
 MyDrawer.propTypes = {
   classes: PropTypes.object.isRequired,

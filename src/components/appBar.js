@@ -6,8 +6,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import MyDrawer from './drawer';
 import Link from '@material-ui/core/Link';
+import MyDrawer from './drawer';
 
 const styles = theme => ({
   root: {
@@ -20,7 +20,7 @@ const styles = theme => ({
   logo: {
     border: '3px solid white',
     padding: theme.spacing.unit * 0.5,
-  }
+  },
 });
 
 class MyAppBar extends React.Component {
@@ -36,13 +36,19 @@ class MyAppBar extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const { left } = this.state;
 
     return (
       <div className={classes.root}>
         <AppBar position="static" color="primary">
           <Toolbar>
-            <MyDrawer isOpen={this.state.left} isClosed={this.toggleDrawer('left', false)}/>
-            <IconButton className={classes.menuButton} onClick={this.toggleDrawer('left', true)} color="inherit" aria-label="Menu">
+            <MyDrawer isOpen={left} isClosed={this.toggleDrawer('left', false)} />
+            <IconButton
+              className={classes.menuButton}
+              onClick={this.toggleDrawer('left', true)}
+              color="inherit"
+              aria-label="Menu"
+            >
               <MenuIcon />
             </IconButton>
             <Link href="/" color="inherit" underline="none">

@@ -16,7 +16,9 @@ function Layout(props) {
   return (
     <div className={classes.root}>
       <Grid container direction="column">
+        {/* TODO: Add MyAppBar component */}
         {children}
+        {/* TODO: Add Footer component */}
       </Grid>
     </div>
   );
