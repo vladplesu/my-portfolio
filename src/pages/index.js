@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import MyAppBar from '../components/appBar';
 import Hero from '../components/hero';
+import AboutMe from '../components/about';
 
 // TODO: Create custom theme using createMuiTheme method
 
@@ -12,6 +13,7 @@ export default () => (
     <MyAppBar />
     <Hero />
     {/* TODO: Add AboutMe component */}
+    <AboutMe />
     {/* TODO: Add Experience component */}
     {/* TODO: Add Skills component */}
     {/* TODO: Add Education component */}

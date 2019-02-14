@@ -20,6 +20,8 @@ const styles = theme => ({
   logo: {
     border: '3px solid white',
     padding: theme.spacing.unit * 0.5,
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
   },
 });
 

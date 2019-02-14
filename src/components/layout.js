@@ -14,7 +14,7 @@ function Layout(props) {
   const { children } = props;
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} color="primary">
       <Grid container direction="column">
         {/* TODO: Add MyAppBar component */}
         {children}
