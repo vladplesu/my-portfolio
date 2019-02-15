@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, Typography } from '@material-ui/core';
 
-// TODO: Add custom styles variable
+// Add custom styles variable
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -18,13 +18,13 @@ const styles = theme => ({
     display: 'flex',
   },
   spanTitle: {
-    color: theme.palette.primary.dark,
+    color: theme.palette.secondary.main,
     fontWeight: 'bold',
     flexBasis: '50%',
   },
 });
 
-// TODO: Add function AboutMe
+// Add function AboutMe
 function AboutMe(props) {
   const { classes } = props;
   // TODO: Add section with short description

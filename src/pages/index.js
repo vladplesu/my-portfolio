@@ -5,12 +5,14 @@ import MyAppBar from '../components/appBar';
 import Hero from '../components/hero';
 import AboutMe from '../components/about';
 
-// TODO: Create custom theme using createMuiTheme method
+// Create custom theme using createMuiTheme method
 const theme = createMuiTheme(
   {
     palette: {
       primary: { main: '#263238', contrastText: '#7ce3ff' },
       secondary: { main: '#7ce3ff', contrastText: '#000000' },
+      text: { primary: '#fff' },
+      divider: '#7ce3ff',
     },
   },
   'Outer Space Anakiwa Guinea',
@@ -18,12 +20,12 @@ const theme = createMuiTheme(
 
 export default () => (
   <MuiThemeProvider theme={theme}>
+    {/* Add custom theme using MuiThemeProvider component */}
     <Layout>
-      {/* TODO: Add custom theme using MuiThemeProvider component */}
       {/* TODO: Move MyAppBar component to Layout component */}
       <MyAppBar />
       <Hero />
-      {/* TODO: Add AboutMe component */}
+      {/* Add AboutMe component */}
       <AboutMe />
       {/* TODO: Add Experience component */}
       {/* TODO: Add Skills component */}

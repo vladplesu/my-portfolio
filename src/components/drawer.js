@@ -13,11 +13,15 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
+  paper: {
+    background: theme.palette.primary.main,
+  },
   title: {
     marginTop: theme.spacing.unit * 5,
   },
   subtitle: {
     marginBottom: theme.spacing.unit * 2,
+    color: 'white',
   },
   list: {
     width: 250,
@@ -30,6 +34,7 @@ const styles = theme => ({
   },
   icon: {
     margin: 0,
+    color: theme.palette.secondary.main,
   },
   media: {
     display: 'flex',
@@ -66,16 +71,11 @@ class MyDrawer extends React.Component {
 
     return (
       <div>
-        <Drawer open={isOpen} onClose={isClosed}>
-          <Typography className={classes.title} variant="h4" color="textPrimary" align="center">
+        <Drawer open={isOpen} onClose={isClosed} classes={{ paper: classes.paper }}>
+          <Typography className={classes.title} variant="h4" color="secondary" align="center">
             Vlad Plesu
           </Typography>
-          <Typography
-            className={classes.subtitle}
-            variant="subtitle1"
-            color="textSecondary"
-            align="center"
-          >
+          <Typography className={classes.subtitle} variant="subtitle1" align="center">
             Front-end Developer
           </Typography>
           <Divider variant="middle" />
@@ -84,9 +84,9 @@ class MyDrawer extends React.Component {
           </div>
           <Divider variant="middle" />
           <div className={classes.media}>
-            <IconButton className={classNames(classes.icon, 'fas fa-at')} color="primary" />
-            <IconButton className={classNames(classes.icon, 'fab fa-linkedin')} color="primary" />
-            <IconButton className={classNames(classes.icon, 'fab fa-github')} color="primary" />
+            <IconButton className={classNames(classes.icon, 'fas fa-at')} />
+            <IconButton className={classNames(classes.icon, 'fab fa-linkedin')} />
+            <IconButton className={classNames(classes.icon, 'fab fa-github')} />
           </div>
         </Drawer>
       </div>
