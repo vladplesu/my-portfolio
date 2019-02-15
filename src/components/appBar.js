@@ -13,15 +13,17 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
   },
+  toolbar: {
+    paddingTop: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit,
+  },
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
   },
   logo: {
-    border: '3px solid white',
-    padding: theme.spacing.unit * 0.5,
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2,
+    border: `3px solid ${theme.palette.primary.contrastText}`,
+    padding: `${theme.spacing.unit * 0.5}px ${theme.spacing.unit * 2}px`,
   },
 });
 
@@ -43,7 +45,7 @@ class MyAppBar extends React.Component {
     return (
       <div className={classes.root}>
         <AppBar position="static" color="primary">
-          <Toolbar>
+          <Toolbar className={classes.toolbar}>
             <MyDrawer isOpen={left} isClosed={this.toggleDrawer('left', false)} />
             <IconButton
               className={classes.menuButton}
