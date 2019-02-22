@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import MyAppBar from './appBar';
 
 const styles = theme => ({
   root: {
@@ -17,7 +18,8 @@ function Layout(props) {
   return (
     <div className={classes.root}>
       <Grid container direction="column">
-        {/* TODO: Add MyAppBar component */}
+        {/* Add MyAppBar component */}
+        <MyAppBar />
         {children}
         {/* TODO: Add Footer component */}
       </Grid>

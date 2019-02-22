@@ -1,9 +1,9 @@
 import React from 'react';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Layout from '../components/layout';
-import MyAppBar from '../components/appBar';
 import Hero from '../components/hero';
 import AboutMe from '../components/about';
+import MyExp from '../components/experience';
 
 // Create custom theme using createMuiTheme method
 const theme = createMuiTheme(
@@ -22,12 +22,11 @@ export default () => (
   <MuiThemeProvider theme={theme}>
     {/* Add custom theme using MuiThemeProvider component */}
     <Layout>
-      {/* TODO: Move MyAppBar component to Layout component */}
-      <MyAppBar />
       <Hero />
       {/* Add AboutMe component */}
       <AboutMe />
-      {/* TODO: Add Experience component */}
+      {/* Add Experience component */}
+      <MyExp />
       {/* TODO: Add Skills component */}
       {/* TODO: Add Education component */}
       {/* TODO: Add Portfolio component */}
