@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, Typography } from '@material-ui/core';
-import Section from './section';
+import Section from '../../components/section';
 
 // Add custom styles variable
 const styles = theme => ({

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import MyCard from './card';
-import Section from './section';
+import MyCard from '../../components/card';
+import Section from '../../components/section';
 
 // Add function MyExp
 function MyExp() {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import Layout from '../components/layout';
-import Hero from '../components/hero';
-import AboutMe from '../components/about';
-import MyExp from '../components/experience';
+import Layout from '../containers/Main';
+import Hero from '../containers/Hero';
+import About from '../containers/About';
+import Experience from '../containers/Experience';
 import theme from '../theme/theme';
 
 export default () => (
@@ -12,9 +12,9 @@ export default () => (
     <Layout>
       <Hero />
       {/* Add AboutMe component */}
-      <AboutMe />
+      <About />
       {/* Add Experience component */}
-      <MyExp />
+      <Experience />
       {/* TODO: Add Skills component */}
       {/* TODO: Add Education component */}
       {/* TODO: Add Portfolio component */}

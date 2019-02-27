@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
-import heroImg from '../images/hero_img.png';
+import heroImg from '../../images/hero_img.png';
 
 const styles = theme => ({
   title: {

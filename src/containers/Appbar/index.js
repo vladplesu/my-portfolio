@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Link from '@material-ui/core/Link';
-import MyDrawer from './drawer';
+import MyDrawer from '../../components/drawer';
 
 const styles = theme => ({
   root: {
