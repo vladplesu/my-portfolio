@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, Typography } from '@material-ui/core';
+import Section from './section';
 
 // Add custom styles variable
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    padding: `0 ${theme.spacing.unit * 3.5}px`,
-    marginTop: theme.spacing.unit * 3,
-  },
   list: {
     listStyle: 'none',
     paddingLeft: 0,
@@ -30,7 +26,7 @@ function AboutMe(props) {
   // Add section with short description
   // Add section with contact information
   return (
-    <section className={classes.root} color="primary">
+    <Section>
       <Typography variant="headline" color="secondary">
         About me.
       </Typography>
@@ -53,7 +49,7 @@ function AboutMe(props) {
           ))}
         </ul>
       </Typography>
-    </section>
+    </Section>
   );
 }
 
