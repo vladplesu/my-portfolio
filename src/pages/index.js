@@ -4,6 +4,7 @@ import Layout from '../containers/Main';
 import Hero from '../containers/Hero';
 import About from '../containers/About';
 import Experience from '../containers/Experience';
+import Skills from '../containers/Skills';
 import theme from '../theme/theme';
 
 export default () => (
@@ -16,6 +17,7 @@ export default () => (
       {/* Add Experience component */}
       <Experience />
       {/* TODO: Add Skills component */}
+      <Skills />
       {/* TODO: Add Education component */}
       {/* TODO: Add Portfolio component */}
       {/* TODO: Add Contact Component */}
