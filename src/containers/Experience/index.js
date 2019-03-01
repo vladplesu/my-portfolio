@@ -7,7 +7,7 @@ import Section from '../../components/section';
 function MyExp() {
   // TODO: Add list with experience
   return (
-    <Section>
+    <Section id="experience">
       <Typography variant="headline" color="secondary" gutterBottom>
         My Experience
       </Typography>

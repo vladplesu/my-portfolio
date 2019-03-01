@@ -26,7 +26,7 @@ function AboutMe(props) {
   // Add section with short description
   // Add section with contact information
   return (
-    <Section>
+    <Section id="about">
       <Typography variant="headline" color="secondary">
         About me.
       </Typography>
