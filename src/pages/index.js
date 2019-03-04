@@ -1,5 +1,6 @@
 import React from 'react';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import { Divider } from '@material-ui/core';
 import Layout from '../containers/Main';
 import Hero from '../containers/Hero';
 import About from '../containers/About';
@@ -14,10 +15,13 @@ export default () => (
       <Hero />
       {/* Add AboutMe component */}
       <About />
+      <Divider variant="middle" />
       {/* Add Experience component */}
       <Experience />
+      <Divider variant="middle" />
       {/* TODO: Add Skills component */}
       <Skills />
+      <Divider variant="middle" />
       {/* TODO: Add Education component */}
       {/* TODO: Add Portfolio component */}
       {/* TODO: Add Contact Component */}

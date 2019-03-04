@@ -8,6 +8,7 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     background: theme.palette.primary.main,
+    paddingTop: '69px',
   },
 });
 

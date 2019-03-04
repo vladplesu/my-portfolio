@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import MyCard from '../../components/card';
 import Section from '../../components/section';
 
@@ -11,9 +11,17 @@ function MyExp() {
       <Typography variant="headline" color="secondary" gutterBottom>
         My Experience
       </Typography>
-      <MyCard cardTitle="FreeCodeCamp" />
-      <MyCard cardTitle="Digital Nation" />
-      <MyCard cardTitle="CS50" />
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm>
+          <MyCard cardTitle="FreeCodeCamp" />
+        </Grid>
+        <Grid item xs={12} sm>
+          <MyCard cardTitle="Digital Nation" />
+        </Grid>
+        <Grid item xs={12} sm>
+          <MyCard cardTitle="CS50" />
+        </Grid>
+      </Grid>
     </Section>
   );
 }
