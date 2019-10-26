@@ -1,47 +1,27 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Button from '@material-ui/core/Button';
-import GetAppIcon from '@material-ui/icons/GetApp';
+import SectionWrapper from '../../components/SectionWrapper';
 
 // Add custom styles variable
 const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundColor: theme.palette.primary.main,
-    paddingTop: theme.spacing(10),
-    paddingBottom: theme.spacing(7),
-    color: theme.palette.text.primary
-  },
-  title: {
-    fontWeight: 700
-  },
-  description: {
-    color: theme.palette.text.hint
-  },
   listItemText: {
     display: 'flex',
     flexDirection: 'column-reverse'
+  },
+  description: {
+    color: theme.palette.text.hint
   }
 }));
 
 export default function AboutWrapper() {
   const classes = useStyles();
   return (
-    <Container component='section' id='about-section' className={classes.root}>
-      <Typography
-        variant='h3'
-        component='h2'
-        gutterBottom
-        classeName={classes.title}>
-        About Me
-      </Typography>
-      <Typography variant='body1' className={classes.description}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iure?
-      </Typography>
+    <SectionWrapper
+      title='About Me'
+      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iure?'>
       <List dense>
         <ListItem disableGutters>
           <ListItemText
@@ -77,10 +57,6 @@ export default function AboutWrapper() {
           />
         </ListItem>
       </List>
-      <Button variant='contained' color='secondary' className={classes.button}>
-        <GetAppIcon />
-        Download CV
-      </Button>
-    </Container>
+    </SectionWrapper>
   );
 }

@@ -7,22 +7,11 @@ import CardWrapper from '../../components/Card';
 import Button from '@material-ui/core/Button';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import Box from '@material-ui/core/Box';
+import SectionWrapper from '../../components/SectionWrapper';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundColor: theme.palette.primary.main,
-    paddingTop: theme.spacing(10),
-    paddingBottom: theme.spacing(7),
-    color: theme.palette.text.primary
-  },
-  title: {
-    fontWeight: 700
-  },
-  description: {
-    color: theme.palette.text.hint
-  },
   grid: {
-    marginBottom: theme.spacing(3)
+    marginBottom: theme.spacing(1)
   }
 }));
 
@@ -73,22 +62,9 @@ const work = [
 export default function ResumeWrapper() {
   const classes = useStyles();
   return (
-    <Container component='section' id='resume-section' className={classes.root}>
-      <Box pb={4}>
-        <Typography
-          variant='h3'
-          component='h2'
-          gutterBottom
-          className={classes.title}>
-          Resume
-        </Typography>
-        <Typography
-          variant='body1'
-          className={classes.description}
-          gutterBottom>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quidem!
-        </Typography>
-      </Box>
+    <SectionWrapper
+      title='Resume'
+      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quidem!'>
       <Grid container spacing={3} className={classes.grid}>
         {courses.map((obj, index) => (
           <Grid key={index} item xs={12}>
@@ -121,10 +97,6 @@ export default function ResumeWrapper() {
           </Grid>
         ))}
       </Grid>
-      <Button variant='contained' color='secondary' className={classes.button}>
-        <GetAppIcon />
-        Download CV
-      </Button>
-    </Container>
+    </SectionWrapper>
   );
 }
