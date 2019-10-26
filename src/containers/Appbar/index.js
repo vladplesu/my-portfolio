@@ -8,33 +8,47 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Link from '@material-ui/core/Link';
 import MyDrawer from '../../components/drawer';
+import { Hidden, Fab } from '@material-ui/core';
+import GetAppIcon from '@material-ui/icons/GetApp';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   toolbar: {
     paddingTop: theme.spacing.unit,
-    paddingBottom: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20,
+    marginRight: 20
   },
   logo: {
     border: `3px solid ${theme.palette.primary.contrastText}`,
-    padding: `${theme.spacing.unit * 0.5}px ${theme.spacing.unit * 2}px`,
+    padding: `${theme.spacing.unit * 0.5}px ${theme.spacing.unit * 2}px`
   },
+  appBar: {
+    top: 'auto',
+    bottom: 0
+  },
+  fabButton: {
+    position: 'absolute',
+    zIndex: 1,
+    top: -30,
+    left: 0,
+    right: 0,
+    margin: '0 auto'
+  }
 });
 
 class MyAppBar extends React.Component {
   state = {
-    left: false,
+    left: false
   };
 
   toggleDrawer = (side, open) => () => {
     this.setState({
-      [side]: open,
+      [side]: open
     });
   };
 
@@ -44,31 +58,50 @@ class MyAppBar extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="fixed" color="primary">
-          <Toolbar className={classes.toolbar}>
-            <MyDrawer isOpen={left} isClosed={this.toggleDrawer('left', false)} />
-            <IconButton
-              className={classes.menuButton}
-              onClick={this.toggleDrawer('left', true)}
-              color="inherit"
-              aria-label="Menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Link href="/" color="inherit" underline="none">
-              <Typography className={classes.logo} variant="h4" color="inherit">
-                vPl
-              </Typography>
-            </Link>
-          </Toolbar>
-        </AppBar>
+        <Hidden smDown>
+          <AppBar position='fixed' color='primary'>
+            <Toolbar className={classes.toolbar}>
+              <MyDrawer
+                isOpen={left}
+                isClosed={this.toggleDrawer('left', false)}
+              />
+              <IconButton
+                className={classes.menuButton}
+                onClick={this.toggleDrawer('left', true)}
+                color='inherit'
+                aria-label='Menu'>
+                <MenuIcon />
+              </IconButton>
+              <Link href='/' color='inherit' underline='none'>
+                <Typography
+                  className={classes.logo}
+                  variant='h4'
+                  color='inherit'>
+                  vPl
+                </Typography>
+              </Link>
+            </Toolbar>
+          </AppBar>
+        </Hidden>
+        <Hidden mdUp>
+          <AppBar position='fixed' color='secondary' className={classes.appBar}>
+            <Toolbar>
+              <IconButton edge='start' color='inherit'>
+                <MenuIcon />
+              </IconButton>
+              <Fab color='primary' className={classes.fabButton}>
+                <GetAppIcon />
+              </Fab>
+            </Toolbar>
+          </AppBar>
+        </Hidden>
       </div>
     );
   }
 }
 
 MyAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(MyAppBar);
