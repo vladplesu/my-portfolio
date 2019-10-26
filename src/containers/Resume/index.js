@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import CardWrapper from '../../components/CardWrapper';
-import SectionWrapper from '../../components/SectionWrapper';
+import Section from '../../components/Section';
 
 const useStyles = makeStyles(theme => ({
   grid: {
@@ -57,10 +57,9 @@ const work = [
 export default function ResumeWrapper() {
   const classes = useStyles();
   return (
-    <SectionWrapper
+    <Section
       title='Resume'
-      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quidem!'
-      button>
+      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quidem!'>
       <Grid container spacing={3} className={classes.grid}>
         {courses.map((obj, index) => (
           <Grid key={index} item xs={12}>
@@ -93,6 +92,6 @@ export default function ResumeWrapper() {
           </Grid>
         ))}
       </Grid>
-    </SectionWrapper>
+    </Section>
   );
 }

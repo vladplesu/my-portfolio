@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import Box from '@material-ui/core/Box';
+import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,12 +22,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SectionWrapper({
-  title,
-  description,
-  button,
-  children
-}) {
+export default function Section({ title, description, children }) {
   const classes = useStyles();
   return (
     <Container component='section' id='about-section' className={classes.root}>
@@ -43,7 +39,7 @@ export default function SectionWrapper({
         </Typography>
       </Box>
       {children}
-      {button && (
+      <Hidden smDown>
         <Button
           variant='contained'
           color='secondary'
@@ -51,7 +47,7 @@ export default function SectionWrapper({
           <GetAppIcon />
           Download CV
         </Button>
-      )}
+      </Hidden>
     </Container>
   );
 }

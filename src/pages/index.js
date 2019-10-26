@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AboutWrapper from '../containers/About';
 import ResumeWrapper from '../containers/Resume';
 import SkillsWrapper from '../containers/Skills';
+import ProjectsWrapper from '../containers/Projects';
 import theme from '../theme';
 
 export default () => (
@@ -12,5 +13,6 @@ export default () => (
     <AboutWrapper />
     <ResumeWrapper />
     <SkillsWrapper />
+    <ProjectsWrapper />
   </ThemeProvider>
 );
