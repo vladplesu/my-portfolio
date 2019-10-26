@@ -1,38 +1,49 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles, Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-const styles = theme => ({
-  card: {
-    minWidth: 200,
-    marginBottom: theme.spacing.unit * 3,
+const useStyles = makeStyles(theme => ({
+  description: {
+    color: theme.palette.text.hint
   },
-});
+  card: {
+    backgroundColor: theme.palette.primary.light
+  },
+  date: {
+    fontWeight: 900
+  }
+}));
 
-function MyCard(props) {
-  const { classes, cardTitle } = props;
-
+export default function CardWrapper({ date, title, institution, description }) {
+  const classes = useStyles();
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography variant="h5" color="primary" gutterBottom>
-          {cardTitle}
-        </Typography>
-        <Typography component="p" color="textSecondary">
-          Varius morbi enim nunc faucibus a. In metus vulputate eu scelerisque felis imperdiet. Vel
-          elit scelerisque mauris pellentesque. A condimentum vitae sapien pellentesque habitant
-          morbi tristique senectus et. Amet risus nullam eget felis eget nunc lobortis.
-        </Typography>
-      </CardContent>
-    </Card>
+    <React.Fragment>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography
+            className={classes.date}
+            color='secondary'
+            variant='h5'
+            component='spam'>
+            {date}
+          </Typography>
+          <Typography variant='h5'>{title}</Typography>
+          <Typography
+            className={classes.description}
+            variant='overline'
+            gutterBottom>
+            {institution}
+          </Typography>
+          <Typography
+            variant='body1'
+            component='p'
+            className={classes.description}>
+            {description}
+          </Typography>
+        </CardContent>
+      </Card>
+    </React.Fragment>
   );
 }
-
-MyCard.propTypes = {
-  classes: PropTypes.object.isRequired,
-  cardTitle: PropTypes.string.isRequired,
-};
-
-export default withStyles(styles)(MyCard);
