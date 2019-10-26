@@ -1,62 +1,86 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles, Typography } from '@material-ui/core';
-import Section from '../../components/section';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Button from '@material-ui/core/Button';
+import GetAppIcon from '@material-ui/icons/GetApp';
 
 // Add custom styles variable
-const styles = theme => ({
-  list: {
-    listStyle: 'none',
-    paddingLeft: 0,
+const useStyles = makeStyles(theme => ({
+  root: {
+    backgroundColor: theme.palette.primary.main,
+    paddingTop: theme.spacing(10),
+    paddingBottom: theme.spacing(7),
+    color: theme.palette.text.primary
   },
-  listItem: {
+  title: {
+    fontWeight: 700
+  },
+  description: {
+    color: theme.palette.text.hint
+  },
+  listItemText: {
     display: 'flex',
-  },
-  spanTitle: {
-    color: theme.palette.secondary.main,
-    fontWeight: 'bold',
-    flexBasis: '40%',
-    flexShrink: '0',
-  },
-});
+    flexDirection: 'column-reverse'
+  }
+}));
 
-// Add function AboutMe
-function AboutMe(props) {
-  const { classes } = props;
-  // Add section with short description
-  // Add section with contact information
+export default function AboutWrapper() {
+  const classes = useStyles();
   return (
-    <Section id="about">
-      <Typography variant="headline" color="secondary">
-        About me.
+    <Container component='section' id='about-section' className={classes.root}>
+      <Typography
+        variant='h3'
+        component='h2'
+        gutterBottom
+        classeName={classes.title}>
+        About Me
       </Typography>
-      <Typography variant="body1">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio error fugiat consequuntur
-        voluptatem cumque, repellendus delectus corrupti voluptatum cupiditate tempore laudantium
-        blanditiis similique quae aliquid, iusto rem nobis aut magni!
+      <Typography variant='body1' className={classes.description}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iure?
       </Typography>
-      <Typography>
-        <ul className={classes.list}>
-          {[
-            ['Location', 'Iasi'],
-            ['Email', 'myemail@ysomethingcool.com'],
-            ['GitHub', '@vladplesu'],
-          ].map(text => (
-            <li className={classes.listItem}>
-              <span className={classes.spanTitle}>{text[0]}</span>
-              <span>{text[1]}</span>
-            </li>
-          ))}
-        </ul>
-      </Typography>
-    </Section>
+      <List dense>
+        <ListItem disableGutters>
+          <ListItemText
+            className={classes.listItemText}
+            primary='Vlad Plesu'
+            secondary='Name:'
+            primaryTypographyProps={{ variant: 'body1' }}
+            secondaryTypographyProps={{ className: classes.description }}
+          />
+        </ListItem>
+        <ListItem disableGutters>
+          <ListItemText
+            className={classes.listItemText}
+            primary='Iasi, Romania'
+            secondary='City:'
+            primaryTypographyProps={{ variant: 'body1' }}
+            secondaryTypographyProps={{
+              variant: 'body1',
+              className: classes.description
+            }}
+          />
+        </ListItem>
+        <ListItem disableGutters>
+          <ListItemText
+            className={classes.listItemText}
+            primary='vlad.plesu@yahoo.com'
+            secondary='Mail:'
+            primaryTypographyProps={{ variant: 'body1' }}
+            secondaryTypographyProps={{
+              variant: 'body1',
+              className: classes.description
+            }}
+          />
+        </ListItem>
+      </List>
+      <Button variant='contained' color='secondary' className={classes.button}>
+        <GetAppIcon />
+        Download CV
+      </Button>
+    </Container>
   );
 }
-
-// Add propTypes
-AboutMe.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-// Export component
-export default withStyles(styles)(AboutMe);
