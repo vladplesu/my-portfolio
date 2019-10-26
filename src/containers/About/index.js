@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import SectionWrapper from '../../components/SectionWrapper';
+import Section from '../../components/Section';
 
 // Add custom styles variable
 const useStyles = makeStyles(theme => ({
@@ -19,10 +19,9 @@ const useStyles = makeStyles(theme => ({
 export default function AboutWrapper() {
   const classes = useStyles();
   return (
-    <SectionWrapper
+    <Section
       title='About Me'
-      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iure?'
-      button>
+      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iure?'>
       <List dense>
         <ListItem disableGutters>
           <ListItemText
@@ -58,6 +57,6 @@ export default function AboutWrapper() {
           />
         </ListItem>
       </List>
-    </SectionWrapper>
+    </Section>
   );
 }

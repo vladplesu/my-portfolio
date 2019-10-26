@@ -1,10 +1,10 @@
 import React from 'react';
-import SectionWrapper from '../../components/SectionWrapper';
+import Section from '../../components/Section';
 import SkillBar from '../../components/SkillBar';
 
 export default function SkillsWrapper() {
   return (
-    <SectionWrapper
+    <Section
       title='My Skils'
       description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consequuntur dolores iste.'>
       <SkillBar title='JavaScript' progress='80%' />
@@ -12,6 +12,6 @@ export default function SkillsWrapper() {
       <SkillBar title='CSS3' progress='90%' />
       <SkillBar title='React' progress='35%' />
       <SkillBar title='jQuery' progress='60%' />
-    </SectionWrapper>
+    </Section>
   );
 }
