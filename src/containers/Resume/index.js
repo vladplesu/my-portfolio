@@ -1,12 +1,7 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
-import CardWrapper from '../../components/Card';
-import Button from '@material-ui/core/Button';
-import GetAppIcon from '@material-ui/icons/GetApp';
-import Box from '@material-ui/core/Box';
+import CardWrapper from '../../components/CardWrapper';
 import SectionWrapper from '../../components/SectionWrapper';
 
 const useStyles = makeStyles(theme => ({
