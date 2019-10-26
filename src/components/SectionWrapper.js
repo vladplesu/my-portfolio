@@ -21,7 +21,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SectionWrapper({ title, description, children }) {
+export default function SectionWrapper({
+  title,
+  description,
+  button,
+  children
+}) {
   const classes = useStyles();
   return (
     <Container component='section' id='about-section' className={classes.root}>
@@ -38,10 +43,15 @@ export default function SectionWrapper({ title, description, children }) {
         </Typography>
       </Box>
       {children}
-      <Button variant='contained' color='secondary' className={classes.button}>
-        <GetAppIcon />
-        Download CV
-      </Button>
+      {button && (
+        <Button
+          variant='contained'
+          color='secondary'
+          className={classes.button}>
+          <GetAppIcon />
+          Download CV
+        </Button>
+      )}
     </Container>
   );
 }

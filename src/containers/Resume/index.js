@@ -64,7 +64,8 @@ export default function ResumeWrapper() {
   return (
     <SectionWrapper
       title='Resume'
-      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quidem!'>
+      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quidem!'
+      button>
       <Grid container spacing={3} className={classes.grid}>
         {courses.map((obj, index) => (
           <Grid key={index} item xs={12}>

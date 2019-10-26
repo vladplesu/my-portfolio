@@ -21,7 +21,8 @@ export default function AboutWrapper() {
   return (
     <SectionWrapper
       title='About Me'
-      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iure?'>
+      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iure?'
+      button>
       <List dense>
         <ListItem disableGutters>
           <ListItemText
