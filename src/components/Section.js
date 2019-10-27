@@ -22,10 +22,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Section({ title, description, children }) {
+export default function Section({ id, title, description, children }) {
   const classes = useStyles();
   return (
-    <Container component='section' id='about-section' className={classes.root}>
+    <Container component='section' className={classes.root} id={id}>
       <Box pb={4}>
         <Typography
           variant='h3'

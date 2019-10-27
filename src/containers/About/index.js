@@ -20,6 +20,7 @@ export default function AboutWrapper() {
   const classes = useStyles();
   return (
     <Section
+      id='about-section'
       title='About Me'
       description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iure?'>
       <List dense>
