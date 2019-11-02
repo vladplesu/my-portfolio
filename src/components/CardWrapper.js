@@ -26,7 +26,7 @@ export default function CardWrapper({ date, title, institution, description }) {
             className={classes.date}
             color='secondary'
             variant='h5'
-            component='spam'>
+            component='span'>
             {date}
           </Typography>
           <Typography variant='h5'>{title}</Typography>

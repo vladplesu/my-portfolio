@@ -8,6 +8,7 @@ import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 export default function ContactWrapper() {
   return (
     <Section
+      id='contact-section'
       title='Contact'
       description='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, voluptate. Id ullam facere vel voluptate ab quam dolore est. Facere.'>
       <ContactCard
