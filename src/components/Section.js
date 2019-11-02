@@ -9,10 +9,7 @@ import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.primary.main,
-    paddingTop: theme.spacing(10),
-    paddingBottom: theme.spacing(7),
-    color: theme.palette.text.primary
+    padding: theme.spacing(12, 0, 0)
   },
   title: {
     fontWeight: 700
@@ -22,16 +19,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Section({ title, description, children }) {
+export default function Section({ id, title, description, children }) {
   const classes = useStyles();
   return (
-    <Container component='section' id='about-section' className={classes.root}>
-      <Box pb={4}>
+    <Container component='section' className={classes.root} id={id}>
+      <Box mb={4} px={2} textAlign='center'>
         <Typography
           variant='h3'
           component='h2'
           gutterBottom
-          classeName={classes.title}>
+          className={classes.title}>
           {title}
         </Typography>
         <Typography variant='body1' className={classes.description}>

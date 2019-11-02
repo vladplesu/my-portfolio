@@ -7,6 +7,9 @@ import Section from '../../components/Section';
 
 // Add custom styles variable
 const useStyles = makeStyles(theme => ({
+  list: {
+    padding: theme.spacing(0, 2)
+  },
   listItemText: {
     display: 'flex',
     flexDirection: 'column-reverse'
@@ -18,44 +21,37 @@ const useStyles = makeStyles(theme => ({
 
 export default function AboutWrapper() {
   const classes = useStyles();
+  const aboutData = [
+    {
+      primary: 'Vlad Plesu',
+      secondary: 'Name:'
+    },
+    {
+      primary: 'Iasi, Romania',
+      secondary: 'City:'
+    },
+    {
+      primary: 'vlad.plesu@yahoo.com',
+      secondary: 'Email:'
+    }
+  ];
   return (
     <Section
+      id='about-section'
       title='About Me'
       description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iure?'>
-      <List dense>
-        <ListItem disableGutters>
-          <ListItemText
-            className={classes.listItemText}
-            primary='Vlad Plesu'
-            secondary='Name:'
-            primaryTypographyProps={{ variant: 'body1' }}
-            secondaryTypographyProps={{ className: classes.description }}
-          />
-        </ListItem>
-        <ListItem disableGutters>
-          <ListItemText
-            className={classes.listItemText}
-            primary='Iasi, Romania'
-            secondary='City:'
-            primaryTypographyProps={{ variant: 'body1' }}
-            secondaryTypographyProps={{
-              variant: 'body1',
-              className: classes.description
-            }}
-          />
-        </ListItem>
-        <ListItem disableGutters>
-          <ListItemText
-            className={classes.listItemText}
-            primary='vlad.plesu@yahoo.com'
-            secondary='Mail:'
-            primaryTypographyProps={{ variant: 'body1' }}
-            secondaryTypographyProps={{
-              variant: 'body1',
-              className: classes.description
-            }}
-          />
-        </ListItem>
+      <List dense className={classes.list}>
+        {aboutData.map((data, i) => (
+          <ListItem disableGutters key={i}>
+            <ListItemText
+              className={classes.listItemText}
+              primary={data.primary}
+              secondary={data.secondary}
+              primaryTypographyProps={{ variant: 'body1' }}
+              secondaryTypographyProps={{ className: classes.description }}
+            />
+          </ListItem>
+        ))}
       </List>
     </Section>
   );

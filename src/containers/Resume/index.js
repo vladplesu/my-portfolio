@@ -6,7 +6,7 @@ import Section from '../../components/Section';
 
 const useStyles = makeStyles(theme => ({
   grid: {
-    marginBottom: theme.spacing(1)
+    padding: theme.spacing(0, 2)
   }
 }));
 
@@ -58,6 +58,7 @@ export default function ResumeWrapper() {
   const classes = useStyles();
   return (
     <Section
+      id='resume-section'
       title='Resume'
       description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quidem!'>
       <Grid container spacing={3} className={classes.grid}>

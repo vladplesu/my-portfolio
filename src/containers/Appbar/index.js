@@ -16,8 +16,8 @@ const styles = theme => ({
     flexGrow: 1
   },
   toolbar: {
-    paddingTop: theme.spacing.unit,
-    paddingBottom: theme.spacing.unit
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1)
   },
   menuButton: {
     marginLeft: -12,
@@ -25,7 +25,7 @@ const styles = theme => ({
   },
   logo: {
     border: `3px solid ${theme.palette.primary.contrastText}`,
-    padding: `${theme.spacing.unit * 0.5}px ${theme.spacing.unit * 2}px`
+    padding: `${theme.spacing(0.5)}px ${theme.spacing(2)}px`
   },
   appBar: {
     top: 'auto',
@@ -37,7 +37,8 @@ const styles = theme => ({
     top: -30,
     left: 0,
     right: 0,
-    margin: '0 auto'
+    margin: '0 auto',
+    backgroundColor: theme.palette.secondary.dark
   }
 });
 
@@ -89,7 +90,7 @@ class MyAppBar extends React.Component {
               <IconButton edge='start' color='inherit'>
                 <MenuIcon />
               </IconButton>
-              <Fab color='primary' className={classes.fabButton}>
+              <Fab className={classes.fabButton}>
                 <GetAppIcon />
               </Fab>
             </Toolbar>
