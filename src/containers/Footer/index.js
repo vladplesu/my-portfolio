@@ -12,7 +12,6 @@ import PlaceIcon from '@material-ui/icons/Place';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.primary.main,
     padding: theme.spacing(5, 0, 14)
   },
   container: {
@@ -30,10 +29,14 @@ const useStyles = makeStyles(theme => ({
       listStyle: 'none',
       margin: theme.spacing(3, 0, 2),
       textAlign: 'left',
-      color: theme.palette.text.hint,
+      color: theme.palette.secondary.main,
       '& li': {
         marginBottom: theme.spacing(1),
         display: 'flex'
+      },
+      '& li span': {
+        marginLeft: theme.spacing(1),
+        color: theme.palette.text.hint
       }
     }
   },
@@ -48,12 +51,14 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '50%',
     justifyContent: 'center',
     alignItems: 'center',
-    color: theme.palette.secondary.dark,
+    color: theme.palette.secondary.main,
     margin: theme.spacing(0, 2)
   },
   link: {
     textTransform: 'capitalize',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    color: theme.palette.text.hint,
+    marginLeft: theme.spacing(1)
   },
   linkIcon: {
     height: '0.7em'
@@ -101,15 +106,15 @@ export default function FooterWrapper() {
         <ul>
           <li>
             <PlaceIcon />
-            Iasi, Romania
+            <span>Iasi, Romania</span>
           </li>
           <li>
             <PhoneIcon />
-            +40 746 691 868
+            <span>+40 746 691 868</span>
           </li>
           <li>
             <AlternateEmailIcon />
-            vlad.plesu@yahoo.com
+            <span>vlad.plesu@yahoo.com</span>
           </li>
         </ul>
       </div>
