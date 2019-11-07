@@ -9,19 +9,16 @@ import ProjectsWrapper from '../containers/Projects';
 import ContactsWrapper from '../containers/Contact';
 import FooterWrapper from '../containers/Footer';
 import theme from '../theme';
-import { Box } from '@material-ui/core';
 
 export default () => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <Box bgcolor={theme.palette.primary.main}>
-      <Appbar />
-      <AboutWrapper />
-      <ResumeWrapper />
-      <SkillsWrapper />
-      <ProjectsWrapper />
-      <ContactsWrapper />
-      <FooterWrapper />
-    </Box>
+    <Appbar />
+    <AboutWrapper />
+    <ResumeWrapper />
+    <SkillsWrapper />
+    <ProjectsWrapper />
+    <ContactsWrapper />
+    <FooterWrapper />
   </ThemeProvider>
 );
