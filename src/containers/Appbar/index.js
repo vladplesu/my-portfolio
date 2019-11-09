@@ -37,8 +37,7 @@ const styles = theme => ({
     top: -30,
     left: 0,
     right: 0,
-    margin: '0 auto',
-    backgroundColor: theme.palette.secondary.dark
+    margin: '0 auto'
   }
 });
 
@@ -85,12 +84,12 @@ class MyAppBar extends React.Component {
           </AppBar>
         </Hidden>
         <Hidden mdUp>
-          <AppBar position='fixed' color='secondary' className={classes.appBar}>
+          <AppBar position='fixed' color='primary' className={classes.appBar}>
             <Toolbar>
               <IconButton edge='start' color='inherit'>
                 <MenuIcon />
               </IconButton>
-              <Fab className={classes.fabButton}>
+              <Fab className={classes.fabButton} color='secondary'>
                 <GetAppIcon />
               </Fab>
             </Toolbar>

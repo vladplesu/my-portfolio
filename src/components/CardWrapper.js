@@ -8,9 +8,6 @@ const useStyles = makeStyles(theme => ({
   description: {
     color: theme.palette.text.hint
   },
-  card: {
-    backgroundColor: theme.palette.primary.light
-  },
   date: {
     fontWeight: 900
   }
@@ -20,7 +17,7 @@ export default function CardWrapper({ date, title, institution, description }) {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Card className={classes.card}>
+      <Card>
         <CardContent>
           <Typography
             className={classes.date}

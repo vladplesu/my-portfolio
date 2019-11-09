@@ -19,10 +19,10 @@ const useStyles = makeStyles(theme => ({
     height: '10px',
     display: 'flex',
     borderRadius: '0.25rem',
-    backgroundColor: theme.palette.primary.light
+    backgroundColor: theme.palette.secondary.dark
   },
   progressBar: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.light,
     borderRadius: '0.25rem'
   }
 }));

@@ -18,7 +18,7 @@ export default function SkillsWrapper() {
       description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consequuntur dolores iste.'>
       <Box px={2}>
         {skills.map((skill, i) => (
-          <SkillBar title={skill.title} progress={skill.progress} />
+          <SkillBar title={skill.title} progress={skill.progress} key={i} />
         ))}
       </Box>
     </Section>
