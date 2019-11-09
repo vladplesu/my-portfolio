@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Appbar from '../containers/Appbar';
+import HomeWrapper from '../containers/Home';
 import AboutWrapper from '../containers/About';
 import ResumeWrapper from '../containers/Resume';
 import SkillsWrapper from '../containers/Skills';
@@ -14,6 +15,7 @@ export default () => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
     <Appbar />
+    <HomeWrapper />
     <AboutWrapper />
     <ResumeWrapper />
     <SkillsWrapper />
