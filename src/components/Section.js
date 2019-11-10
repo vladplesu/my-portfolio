@@ -19,11 +19,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Section({ id, title, description, children }) {
+export default function Section({
+  id,
+  title,
+  description,
+  alignText,
+  children
+}) {
   const classes = useStyles();
   return (
     <Container component='section' className={classes.root} id={id}>
-      <Box mb={4} px={2} textAlign='center'>
+      <Box mb={4} px={2} textAlign={alignText}>
         <Typography
           variant='h3'
           component='h2'
