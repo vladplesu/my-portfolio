@@ -31,11 +31,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CarouselButton() {
+export default function CarouselButton({ isActive, handleClick }) {
   const classes = useStyles();
   return (
-    <button className={classes.dot}>
-      <span></span>
-    </button>
+    <button
+      className={`${classes.dot} ${isActive && classes.active}`}
+      onClick={handleClick}></button>
   );
 }

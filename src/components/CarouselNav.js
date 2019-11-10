@@ -12,12 +12,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CarouselNav() {
+export default function CarouselNav({ currentIndex, handleClick }) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <CarouselButton />
-      <CarouselButton />
+      <CarouselButton isActive={0 === currentIndex} handleClick={handleClick} />
+      <CarouselButton isActive={1 === currentIndex} handleClick={handleClick} />
     </div>
   );
 }
