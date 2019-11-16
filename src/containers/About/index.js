@@ -1,5 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -10,6 +11,19 @@ import maxImg from '../../images/max-duzij-qAjJk-un3BI-unsplash.jpg';
 
 // Add custom styles variable
 const useStyles = makeStyles(theme => ({
+  root: {
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(0, 2),
+      maxWidth: '720px'
+    },
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '960px'
+    },
+    [theme.breakpoints.up('lg')]: {
+      maxWidth: '1140px'
+    },
+    margin: '0 auto'
+  },
   list: {
     padding: theme.spacing(0, 2)
   },
@@ -37,6 +51,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function AboutWrapper() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('xs'));
   const classes = useStyles();
   const aboutData = [
     {
@@ -53,15 +69,16 @@ export default function AboutWrapper() {
     }
   ];
   return (
-    <Grid container>
-      <Grid item sm={6} className={classes.imgContainer}>
+    <Grid container className={classes.root}>
+      <Grid item sm={6} lg={5} className={classes.imgContainer}>
         <div className={classes.img}></div>
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6} lg={7}>
         <Section
           id='about-section'
           title='About Me'
-          description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iure?'>
+          description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iure?'
+          alignText={matches ? 'center' : ''}>
           <List dense className={classes.list}>
             {aboutData.map((data, i) => (
               <ListItem disableGutters key={i}>

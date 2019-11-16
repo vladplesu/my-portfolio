@@ -9,7 +9,16 @@ import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(12, 0, 0)
+    padding: theme.spacing(12, 0, 0),
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '720px'
+    },
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '960px'
+    },
+    [theme.breakpoints.up('lg')]: {
+      maxWidth: '1140px'
+    }
   },
   title: {
     fontWeight: 700
@@ -27,6 +36,7 @@ export default function Section({
   children
 }) {
   const classes = useStyles();
+  console.log(alignText);
   return (
     <Container component='section' className={classes.root} id={id}>
       <Box mb={4} px={2} textAlign={alignText}>
@@ -42,7 +52,7 @@ export default function Section({
         </Typography>
       </Box>
       {children}
-      <Hidden smDown>
+      {/*<Hidden smDown>
         <Button
           variant='contained'
           color='secondary'
@@ -50,7 +60,7 @@ export default function Section({
           <GetAppIcon />
           Download CV
         </Button>
-      </Hidden>
+      </Hidden>*/}
     </Container>
   );
 }

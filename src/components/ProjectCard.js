@@ -8,7 +8,6 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'center center',
     width: '100%',
     height: '285px',
-    marginBottom: theme.spacing(2),
     position: 'relative',
     zIndex: 0,
     display: 'flex',

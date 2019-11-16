@@ -1,11 +1,21 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import CardWrapper from '../../components/CardWrapper';
 import Section from '../../components/Section';
+import { maxWidth } from '@material-ui/system';
 
-const useStyles = makeStyles(theme => ({}));
+const useStyles = makeStyles(theme => ({
+  gridItem: {
+    marginBottom: theme.spacing(2)
+  },
+  col: {
+    [theme.breakpoints.up('sm')]: {
+      paddingRight: theme.spacing(2)
+    }
+  }
+}));
 
 const courses = [
   {
@@ -60,10 +70,16 @@ export default function ResumeWrapper() {
       description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quidem!'
       alignText='center'>
       <Box px={2}>
-        <Grid container justify='center' spacing={3}>
-          <Grid item container xs={12} sm={6} direction='column' spacing={3}>
+        <Grid container justify='space-between'>
+          <Grid
+            item
+            container
+            xs={12}
+            sm={6}
+            direction='column'
+            className={classes.col}>
             {courses.map((obj, index) => (
-              <Grid key={index} item>
+              <Grid key={index} item className={classes.gridItem}>
                 <CardWrapper
                   date={obj.date}
                   title={obj.title}
@@ -73,9 +89,9 @@ export default function ResumeWrapper() {
               </Grid>
             ))}
           </Grid>
-          <Grid item container xs={12} sm={6} direction='column' spacing={3}>
+          <Grid item container xs={12} sm={6} direction='column'>
             {work.map((obj, index) => (
-              <Grid key={index} item>
+              <Grid key={index} item className={classes.gridItem}>
                 <CardWrapper
                   date={obj.date}
                   title={obj.title}
@@ -85,7 +101,7 @@ export default function ResumeWrapper() {
               </Grid>
             ))}
             {education.map((obj, index) => (
-              <Grid key={index} item>
+              <Grid key={index} item className={classes.gridItem}>
                 <CardWrapper
                   date={obj.date}
                   title={obj.title}
