@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 
 import Link from '@material-ui/core/Link';
 
@@ -15,8 +16,28 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(5, 0, 14)
   },
   container: {
-    textAlign: 'center',
-    padding: theme.spacing(3, 2, 0),
+    margin: '0 auto',
+    padding: theme.spacing(0, 2, 0),
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '720px'
+    },
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '960px'
+    }
+  },
+  row: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
+  col: {
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      flexBasis: 0,
+      flexGrow: 1
+    },
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center'
+    },
     '& h2': {
       fontSize: '1.8rem',
       marginTop: 0
@@ -41,7 +62,9 @@ const useStyles = makeStyles(theme => ({
     }
   },
   socialList: {
-    textAlign: 'center !important'
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center !important'
+    }
   },
   mediaIcon: {
     display: 'inline-flex !important',
@@ -52,7 +75,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     color: theme.palette.secondary.main,
-    margin: theme.spacing(0, 2)
+    marginRight: theme.spacing(2)
   },
   link: {
     textTransform: 'capitalize',
@@ -62,6 +85,9 @@ const useStyles = makeStyles(theme => ({
   },
   linkIcon: {
     height: '0.7em'
+  },
+  textCenter: {
+    textAlign: 'center'
   }
 }));
 
@@ -71,55 +97,61 @@ export default function FooterWrapper() {
   return (
     <footer className={classes.root}>
       <div className={classes.container}>
-        <h2>About</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim,
-          veritatis?
-        </p>
-        <ul className={classes.socialList}>
-          <li className={classes.mediaIcon}>
-            <LinkedInIcon />
-          </li>
-          <li className={classes.mediaIcon}>
-            <GitHubIcon />
-          </li>
-        </ul>
-      </div>
-      <div className={classes.container}>
-        <h2>Link</h2>
-        <ul>
-          {links.map(link => (
-            <li key={link}>
-              <ArrowRightAltIcon className={classes.linkIcon} />
-              <Link
-                href={`#${link}-section`}
-                color='textPrimary'
-                className={classes.link}>
-                {link}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className={classes.container}>
-        <h2>Have a Question?</h2>
-        <ul>
-          <li>
-            <PlaceIcon />
-            <span>Iasi, Romania</span>
-          </li>
-          <li>
-            <PhoneIcon />
-            <span>+40 746 691 868</span>
-          </li>
-          <li>
-            <AlternateEmailIcon />
-            <span>vlad.plesu@yahoo.com</span>
-          </li>
-        </ul>
-      </div>
-      <div className={classes.container}>
-        <p>Copywright ©{new Date().getFullYear()}</p>
+        <div className={classes.row}>
+          <div className={classes.col}>
+            <h2>About</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim,
+              veritatis?
+            </p>
+            <ul className={classes.socialList}>
+              <li className={classes.mediaIcon}>
+                <LinkedInIcon />
+              </li>
+              <li className={classes.mediaIcon}>
+                <GitHubIcon />
+              </li>
+            </ul>
+          </div>
+          <div className={classes.col}>
+            <h2>Link</h2>
+            <ul>
+              {links.map(link => (
+                <li key={link}>
+                  <ArrowRightAltIcon className={classes.linkIcon} />
+                  <Link
+                    href={`#${link}-section`}
+                    color='textPrimary'
+                    className={classes.link}>
+                    {link}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={classes.col}>
+            <h2>Have a Question?</h2>
+            <ul>
+              <li>
+                <PlaceIcon />
+                <span>Iasi, Romania</span>
+              </li>
+              <li>
+                <PhoneIcon />
+                <span>+40 746 691 868</span>
+              </li>
+              <li>
+                <AlternateEmailIcon />
+                <span>vlad.plesu@yahoo.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className={classes.row}>
+          <div className={clsx(classes.col, classes.textCenter)}>
+            <p>Copywright ©{new Date().getFullYear()}</p>
+          </div>
+        </div>
       </div>
     </footer>
   );

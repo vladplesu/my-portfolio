@@ -1,11 +1,21 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import CardWrapper from '../../components/CardWrapper';
 import Section from '../../components/Section';
+import { maxWidth } from '@material-ui/system';
 
-const useStyles = makeStyles(theme => ({}));
+const useStyles = makeStyles(theme => ({
+  gridItem: {
+    marginBottom: theme.spacing(2)
+  },
+  col: {
+    [theme.breakpoints.up('sm')]: {
+      paddingRight: theme.spacing(2)
+    }
+  }
+}));
 
 const courses = [
   {
@@ -57,39 +67,50 @@ export default function ResumeWrapper() {
     <Section
       id='resume-section'
       title='Resume'
-      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quidem!'>
+      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quidem!'
+      alignText='center'>
       <Box px={2}>
-        <Grid container spacing={3} className={classes.grid}>
-          {courses.map((obj, index) => (
-            <Grid key={index} item xs={12}>
-              <CardWrapper
-                date={obj.date}
-                title={obj.title}
-                institution={obj.institution}
-                description={obj.description}
-              />
-            </Grid>
-          ))}
-          {work.map((obj, index) => (
-            <Grid key={index} item xs={12}>
-              <CardWrapper
-                date={obj.date}
-                title={obj.title}
-                institution={obj.institution}
-                description={obj.description}
-              />
-            </Grid>
-          ))}
-          {education.map((obj, index) => (
-            <Grid key={index} item xs={12}>
-              <CardWrapper
-                date={obj.date}
-                title={obj.title}
-                institution={obj.institution}
-                description={obj.description}
-              />
-            </Grid>
-          ))}
+        <Grid container justify='space-between'>
+          <Grid
+            item
+            container
+            xs={12}
+            sm={6}
+            direction='column'
+            className={classes.col}>
+            {courses.map((obj, index) => (
+              <Grid key={index} item className={classes.gridItem}>
+                <CardWrapper
+                  date={obj.date}
+                  title={obj.title}
+                  institution={obj.institution}
+                  description={obj.description}
+                />
+              </Grid>
+            ))}
+          </Grid>
+          <Grid item container xs={12} sm={6} direction='column'>
+            {work.map((obj, index) => (
+              <Grid key={index} item className={classes.gridItem}>
+                <CardWrapper
+                  date={obj.date}
+                  title={obj.title}
+                  institution={obj.institution}
+                  description={obj.description}
+                />
+              </Grid>
+            ))}
+            {education.map((obj, index) => (
+              <Grid key={index} item className={classes.gridItem}>
+                <CardWrapper
+                  date={obj.date}
+                  title={obj.title}
+                  institution={obj.institution}
+                  description={obj.description}
+                />
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
       </Box>
     </Section>

@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import Section from '../../components/Section';
 import SkillBar from '../../components/SkillBar';
+import Grid from '@material-ui/core/Grid';
 
 export default function SkillsWrapper() {
   const skills = [
@@ -15,11 +16,20 @@ export default function SkillsWrapper() {
     <Section
       id='skills-section'
       title='My Skils'
-      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consequuntur dolores iste.'>
+      description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consequuntur dolores iste.'
+      alignText='center'>
       <Box px={2}>
-        {skills.map((skill, i) => (
-          <SkillBar title={skill.title} progress={skill.progress} key={i} />
-        ))}
+        <Grid container spacing={3}>
+          {skills.map((skill, i) => (
+            <Grid item xs={12} sm={6} key={i}>
+              <SkillBar
+                title={skill.title}
+                progress={skill.progress}
+                key={`${i}-skill`}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </Box>
     </Section>
   );
