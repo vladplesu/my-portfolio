@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Link from '@material-ui/core/Link';
-import MyDrawer from '../../components/drawer';
+// import Link from '@material-ui/core/Link';
+// import MyDrawer from '../../components/drawer';
+import Navbar from '../../components/Navbar';
 import { Hidden, Fab } from '@material-ui/core';
 import GetAppIcon from '@material-ui/icons/GetApp';
 
@@ -54,34 +55,37 @@ class MyAppBar extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { left } = this.state;
+    // const { left } = this.state;
 
     return (
       <div className={classes.root}>
         <Hidden smDown>
-          <AppBar position='fixed' color='primary'>
-            <Toolbar className={classes.toolbar}>
-              <MyDrawer
-                isOpen={left}
-                isClosed={this.toggleDrawer('left', false)}
-              />
-              <IconButton
-                className={classes.menuButton}
-                onClick={this.toggleDrawer('left', true)}
-                color='inherit'
-                aria-label='Menu'>
-                <MenuIcon />
-              </IconButton>
-              <Link href='/' color='inherit' underline='none'>
-                <Typography
-                  className={classes.logo}
-                  variant='h4'
-                  color='inherit'>
-                  vPl
-                </Typography>
-              </Link>
-            </Toolbar>
-          </AppBar>
+          {/**
+           <AppBar position='fixed' color='primary'>
+             <Toolbar className={classes.toolbar}>
+               <MyDrawer
+                 isOpen={left}
+                 isClosed={this.toggleDrawer('left', false)}
+               />
+               <IconButton
+                 className={classes.menuButton}
+                 onClick={this.toggleDrawer('left', true)}
+                 color='inherit'
+                 aria-label='Menu'>
+                 <MenuIcon />
+               </IconButton>
+               <Link href='/' color='inherit' underline='none'>
+                 <Typography
+                   className={classes.logo}
+                   variant='h4'
+                   color='inherit'>
+                   vPl
+                 </Typography>
+               </Link>
+             </Toolbar>
+           </AppBar>
+           */}
+          <Navbar />
         </Hidden>
         <Hidden mdUp>
           <AppBar position='fixed' color='primary' className={classes.appBar}>
