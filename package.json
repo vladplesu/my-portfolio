@@ -12,20 +12,24 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
-    "@material-ui/core": "^4.5.1",
+    "@material-ui/core": "^4.7.0",
     "@material-ui/icons": "^4.5.1",
-    "@material-ui/styles": "^4.5.0",
+    "@material-ui/styles": "^4.6.0",
     "babel-plugin-styled-components": "^1.10.6",
     "classnames": "^2.2.6",
     "clsx": "^1.0.4",
     "fg-loadcss": "^2.1.0",
-    "gatsby": "^2.16.5",
+    "gatsby": "^2.18.3",
+    "gatsby-background-image": "^0.9.7",
     "gatsby-plugin-material-ui": "^2.1.6",
-    "gatsby-plugin-styled-components": "^3.1.11",
+    "gatsby-plugin-sharp": "^2.3.3",
+    "gatsby-plugin-styled-components": "^3.1.13",
+    "gatsby-source-filesystem": "^2.1.38",
+    "gatsby-transformer-sharp": "^2.3.5",
     "prop-types": "^15.7.2",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "styled-components": "^4.4.0"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "styled-components": "^4.4.1"
   },
   "repository": {
     "type": "git",
@@ -36,7 +40,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.5.1",
+    "eslint": "^6.7.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",

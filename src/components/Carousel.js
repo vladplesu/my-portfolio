@@ -29,7 +29,7 @@ export default function Carousel() {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id='home-section'>
       {0 === currentIndex && (
         <CarouselItem
           title="I'm"

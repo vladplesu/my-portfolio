@@ -36,7 +36,6 @@ export default function Section({
   children
 }) {
   const classes = useStyles();
-  console.log(alignText);
   return (
     <Container component='section' className={classes.root} id={id}>
       <Box mb={4} px={2} textAlign={alignText}>
