@@ -9,16 +9,7 @@ import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(12, 0, 0),
-    [theme.breakpoints.up('sm')]: {
-      maxWidth: '720px'
-    },
-    [theme.breakpoints.up('md')]: {
-      maxWidth: '960px'
-    },
-    [theme.breakpoints.up('lg')]: {
-      maxWidth: '1140px'
-    }
+    padding: theme.spacing(12, 0, 0)
   },
   title: {
     fontWeight: 700
