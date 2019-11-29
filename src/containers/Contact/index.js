@@ -9,8 +9,7 @@ import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-
-import maxImg from '../../images/max-duzij-qAjJk-un3BI-unsplash.jpg';
+import StyledBGImage from '../../components/BackgroundImage';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,14 +27,6 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     margin: '0 auto'
-  },
-  img: {
-    backgroundImage: `url(${maxImg})`,
-    width: '100%',
-    height: '100%',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat'
   }
 }));
 
@@ -73,7 +64,7 @@ export default function ContactWrapper() {
       <Box px={2}>
         <Grid container spacing={1}>
           <Grid item xs={12} sm={6}>
-            <div className={classes.img}></div>
+            <StyledBGImage imgName='max-duzij-qAjJk-un3BI-unsplash.jpg' />
           </Grid>
           <Grid item xs={12} sm={6}>
             <form noValidate autoComplete='off' className={classes.root}>
