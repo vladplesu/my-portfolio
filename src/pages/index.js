@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Layout from '../containers/Main';
 import Appbar from '../containers/Appbar';
 import HomeWrapper from '../containers/Home';
 import AboutWrapper from '../containers/About';
@@ -14,13 +15,15 @@ import theme from '../theme';
 export default () => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <Appbar />
-    <HomeWrapper />
-    <AboutWrapper />
-    <ResumeWrapper />
-    <SkillsWrapper />
-    <ProjectsWrapper />
-    <ContactsWrapper />
-    <FooterWrapper />
+    <Layout>
+      <Appbar />
+      <HomeWrapper />
+      <AboutWrapper />
+      <ResumeWrapper />
+      <SkillsWrapper />
+      <ProjectsWrapper />
+      <ContactsWrapper />
+      <FooterWrapper />
+    </Layout>
   </ThemeProvider>
 );

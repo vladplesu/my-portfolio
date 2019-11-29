@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import StyledBGImage from './BackgroundImage';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -80,16 +81,14 @@ export default function CarouselItem({
   secondTitle,
   subTitle,
   message,
-  imgUrl
+  imgUrl: imgName
 }) {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <div
-        className={classes.background}
-        style={{ backgroundImage: `url(${imgUrl})` }}>
+      <StyledBGImage imgName={imgName}>
         <div></div>
-      </div>
+      </StyledBGImage>
       <div className={classes.content}>
         <div>
           <span>Hello!</span>

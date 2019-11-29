@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import codeLines from '../images/florian-olivo-4hbJ-eymZ1o-unsplash.jpg';
-import heroimg from '../images/hero_img.png';
 import CarouselNav from '../components/CarouselNav';
 import CarouselItem from '../components/Carouseltem';
 
@@ -29,13 +27,13 @@ export default function Carousel() {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id='home-section'>
       {0 === currentIndex && (
         <CarouselItem
           title="I'm"
           subTitle='A Frontend Developer'
           message='Vlad Plesu'
-          imgUrl={codeLines}
+          imgUrl='florian-olivo-4hbJ-eymZ1o-unsplash.jpg'
         />
       )}
       {1 === currentIndex && (
@@ -43,7 +41,7 @@ export default function Carousel() {
           title="I'm a"
           secondTitle='located in Iasi'
           message='frontend developer'
-          imgUrl={heroimg}
+          imgUrl='hero_img.png'
         />
       )}
       <CarouselNav

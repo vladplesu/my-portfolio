@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Section from '../../components/Section';
 
 import maxImg from '../../images/max-duzij-qAjJk-un3BI-unsplash.jpg';
+import StyledBGImage from '../../components/BackgroundImage';
 
 // Add custom styles variable
 const useStyles = makeStyles(theme => ({
@@ -71,7 +72,8 @@ export default function AboutWrapper() {
   return (
     <Grid container className={classes.root}>
       <Grid item sm={6} lg={5} className={classes.imgContainer}>
-        <div className={classes.img}></div>
+        {/**<div className={classes.img}></div>**/}
+        <StyledBGImage imgName='max-duzij-qAjJk-un3BI-unsplash.jpg' />
       </Grid>
       <Grid item xs={12} sm={6} lg={7}>
         <Section

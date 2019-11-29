@@ -2,6 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import NavLink from './NavLink';
+import useScrollPosition from '../hooks/useScrollPositon';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -57,49 +59,6 @@ const useStyles = makeStyles(theme => ({
       flexDirection: 'row'
     }
   },
-  navLink: {
-    textDecoration: 'none',
-    display: 'block',
-    fontSize: '1rem',
-    padding: theme.spacing(1.4, 2.5, 1.4, 2.5),
-    color: theme.palette.text.primary,
-    fontWeight: 400,
-    opacity: 1,
-    '&:hover, &:focus': {
-      outline: 'none'
-    },
-    '& span': {
-      position: 'relative',
-      display: 'block',
-      paddingBottom: '2px',
-      lineHeight: 1.8,
-      [theme.breakpoints.up('md')]: {
-        display: 'inline-block'
-      },
-      '&:before': {
-        content: '""',
-        position: 'absolute',
-        width: '100%',
-        height: '2px',
-        bottom: 0,
-        left: 0,
-        background: theme.palette.secondary.light,
-        visibility: 'visible',
-        transform: 'scaleX(0)',
-        transition: 'all 0.3s ease-in-out 0s'
-      }
-    },
-    '&:hover span:before': {
-      transform: 'scaleX(1)'
-    }
-  },
-  active: {
-    background: 'none',
-    color: theme.palette.secondary.main,
-    '& span:before': {
-      transform: 'scaleX(1)'
-    }
-  },
   scrolled: {
     position: 'fixed',
     right: 0,
@@ -112,52 +71,72 @@ const useStyles = makeStyles(theme => ({
   },
   awake: {
     marginTop: 0,
-    transition: '.3s all ease-out'
+    transition: '.35s all ease-out'
+  },
+  sleep: {
+    transition: '.35s all ease-out'
   }
 }));
 
+const menuItemNames = [
+  'home',
+  'about',
+  'resume',
+  'skills',
+  'projects',
+  'contact'
+];
+
 export default function Navbar() {
   const classes = useStyles();
+  const [hideOnScroll, setHideOnScroll] = React.useState(false);
+  const [showOnScroll, setShowOnScroll] = React.useState(false);
+  const [sleepOnScroll, setSleepOnScroll] = React.useState(false);
+  const curPos = useScrollPosition();
+
+  if (curPos.y > 100 && !hideOnScroll) {
+    setHideOnScroll(true);
+  }
+  if (curPos.y < 100 && hideOnScroll) {
+    setHideOnScroll(false);
+    setSleepOnScroll(false);
+  }
+  if (curPos.y > 350 && !showOnScroll) {
+    setShowOnScroll(true);
+    setSleepOnScroll(true);
+  }
+  if (curPos.y < 350 && showOnScroll) {
+    setShowOnScroll(false);
+  }
+
   return (
-    <nav className={clsx(classes.root, classes.scrolled, classes.awake)}>
+    <nav
+      className={clsx(
+        classes.root,
+        hideOnScroll && classes.scrolled,
+        showOnScroll && classes.awake,
+        sleepOnScroll && classes.sleep
+      )}>
       <Container style={{ display: 'flex' }}>
         <a href='/' className={classes.brand}>
           Vlad
         </a>
         <div className={classes.navbarCollapse}>
           <ul className={classes.navbarNav}>
-            <li>
-              <a
-                href='#home-section'
-                className={clsx(classes.navLink, true && classes.active)}>
-                <span>Home</span>
-              </a>
-            </li>
-            <li>
-              <a href='#about-section' className={classes.navLink}>
-                <span>About</span>
-              </a>
-            </li>
-            <li>
-              <a href='#resume-section' className={classes.navLink}>
-                <span>Resume</span>
-              </a>
-            </li>
-            <li>
-              <a href='#skills-section' className={classes.navLink}>
-                <span>Skills</span>
-              </a>
-            </li>
-            <li>
-              <a href='#projects-section' className={classes.navLink}>
-                <span>Projects</span>
-              </a>
-            </li>
-            <li>
-              <a href='#contact-section' className={classes.navLink}>
-                <span>Contact</span>
-              </a>
-            </li>
+            {menuItemNames.map(itemName => {
+              const anchorTarget = document.getElementById(
+                `${itemName}-section`
+              );
+              const anchorTargetTop =
+                anchorTarget.getBoundingClientRect().top + curPos.y - 20;
+              const anchorTargetBottom =
+                anchorTarget.getBoundingClientRect().bottom + curPos.y - 20;
+              const isActive =
+                curPos.y < anchorTargetBottom && curPos.y >= anchorTargetTop;
+              return (
+                <NavLink key={itemName} to={itemName} isActive={isActive} />
+              );
+            })}
           </ul>
         </div>
       </Container>
