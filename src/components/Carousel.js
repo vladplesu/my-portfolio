@@ -35,7 +35,7 @@ export default function Carousel() {
           title="I'm"
           subTitle='A Frontend Developer'
           message='Vlad Plesu'
-          imgUrl={codeLines}
+          imgUrl='florian-olivo-4hbJ-eymZ1o-unsplash.jpg'
         />
       )}
       {1 === currentIndex && (
@@ -43,7 +43,7 @@ export default function Carousel() {
           title="I'm a"
           secondTitle='located in Iasi'
           message='frontend developer'
-          imgUrl={heroimg}
+          imgUrl='hero_img.png'
         />
       )}
       <CarouselNav
