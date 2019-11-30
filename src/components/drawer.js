@@ -1,103 +1,46 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import { loadCSS } from 'fg-loadcss/src/loadCSS';
+import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
 
-const styles = theme => ({
-  paper: {
-    background: theme.palette.primary.main,
-  },
-  title: {
-    marginTop: theme.spacing.unit * 5,
-  },
-  subtitle: {
-    marginBottom: theme.spacing.unit * 2,
-    color: 'white',
-  },
-  list: {
-    width: 250,
-  },
+const useStyles = makeStyles(() => ({
   fullList: {
-    width: 'auto',
+    width: 'auto'
   },
   listItem: {
     textAlign: 'center',
-  },
-  icon: {
-    margin: 0,
-    color: theme.palette.secondary.main,
-  },
-  media: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-  },
-});
-
-class MyDrawer extends React.Component {
-  componentDidMount() {
-    loadCSS('https://use.fontawesome.com/releases/v5.1.0/css/all.css');
+    textTransform: 'capitalize'
   }
+}));
 
-  render() {
-    const { classes } = this.props;
-    const { isOpen } = this.props;
-    const { isClosed } = this.props;
+export default ({ isOpen, toggleDrawer }) => {
+  const classes = useStyles();
 
-    const sideList = (
-      <div className={classes.list}>
-        <List>
-          {['About', 'Experience', 'Skills', 'Education', 'Portfolio', 'Contact'].map(text => (
-            <ListItem button key={text}>
-              <ListItemText className={classes.listItem}>
-                <Link href={'#'.concat(text.toLowerCase())} underline="none" color="textPrimary">
-                  {text}
-                </Link>
-              </ListItemText>
-            </ListItem>
-          ))}
-        </List>
-      </div>
-    );
-
-    return (
-      <div>
-        <Drawer open={isOpen} onClose={isClosed} classes={{ paper: classes.paper }}>
-          <Typography className={classes.title} variant="h4" color="secondary" align="center">
-            Vlad Plesu
-          </Typography>
-          <Typography className={classes.subtitle} variant="subtitle1" align="center">
-            Front-end Developer
-          </Typography>
-          <Divider variant="middle" />
-          <div tabIndex={0} role="button" onClick={isClosed} onKeyDown={isClosed}>
-            {sideList}
-          </div>
-          <Divider variant="middle" />
-          <div className={classes.media}>
-            <IconButton className={classNames(classes.icon, 'fas fa-at')} />
-            <IconButton className={classNames(classes.icon, 'fab fa-linkedin')} />
-            <IconButton className={classNames(classes.icon, 'fab fa-github')} />
-          </div>
-        </Drawer>
-      </div>
-    );
-  }
-}
-
-MyDrawer.propTypes = {
-  classes: PropTypes.object.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  isClosed: PropTypes.bool.isRequired,
+  return (
+    <div>
+      <Drawer anchor='bottom' open={isOpen} onClose={toggleDrawer}>
+        <div className={classes.fullList}>
+          <List>
+            {['home', 'about', 'resume', 'skills', 'projects', 'contact'].map(
+              text => (
+                <ListItem button key={text} onClick={toggleDrawer}>
+                  <ListItemText className={classes.listItem}>
+                    <Link
+                      href={`#${text}-section`}
+                      underline='none'
+                      color='textPrimary'>
+                      {text}
+                    </Link>
+                  </ListItemText>
+                </ListItem>
+              )
+            )}
+          </List>
+        </div>
+      </Drawer>
+    </div>
+  );
 };
-
-export default withStyles(styles)(MyDrawer);
