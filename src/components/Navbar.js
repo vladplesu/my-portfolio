@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import NavLink from './NavLink';
 import useScrollPosition from '../hooks/useScrollPositon';
@@ -16,11 +16,11 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     zIndex: 3,
     padding: theme.spacing(1, 1.5),
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       flexFlow: 'row nowrap',
       justifyContent: 'flex-start'
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('xs')]: {
       position: 'relative',
       padding: theme.spacing(2)
     }
@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     flexBasis: '100%',
     flexGrow: 1,
     alignItems: 'center',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       display: 'flex',
       flexBasis: 'auto'
     }
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 0,
     listStyle: 'none',
     flexDirection: 'column',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       flexDirection: 'row'
     }
   },
@@ -77,6 +77,14 @@ const useStyles = makeStyles(theme => ({
     transition: '.35s all ease-out'
   }
 }));
+
+const StyledContainer = withStyles({
+  root: {
+    display: 'flex'
+    // paddingLeft: 0,
+    // paddingRight: 0
+  }
+})(Container);
 
 const menuItemNames = [
   'home',
@@ -117,7 +125,7 @@ export default function Navbar() {
         showOnScroll && classes.awake,
         sleepOnScroll && classes.sleep
       )}>
-      <Container style={{ display: 'flex' }}>
+      <StyledContainer>
         <a href='/' className={classes.brand}>
           Vlad
         </a>
@@ -139,7 +147,7 @@ export default function Navbar() {
             })}
           </ul>
         </div>
-      </Container>
+      </StyledContainer>
     </nav>
   );
 }
