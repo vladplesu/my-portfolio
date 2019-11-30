@@ -1,17 +1,20 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import useScrollPosition from '../hooks/useScrollPositon';
 
 const useStyles = makeStyles(theme => ({
   navLink: {
     textDecoration: 'none',
     display: 'block',
     fontSize: '1rem',
-    padding: theme.spacing(1.4, 2.5, 1.4, 2.5),
+    padding: theme.spacing(1.4, 0, 1.4, 5),
     color: theme.palette.text.primary,
     fontWeight: 400,
     opacity: 1,
+    [theme.breakpoints.only('sm')]: {
+      fontSize: '0.85rem',
+      paddingLeft: theme.spacing(3.5)
+    },
     '&:hover, &:focus': {
       outline: 'none'
     },
