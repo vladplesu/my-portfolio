@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Fab from '@material-ui/core/Fab';
 import MenuIcon from '@material-ui/icons/Menu';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import Drawer from './Drawer';
+import MyDrawer from './Drawer';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -48,7 +48,7 @@ export default function BottomAppBar() {
           <GetAppIcon />
         </Fab>
       </Toolbar>
-      <Drawer isOpen={isOpen} toggleDrawer={toggleDrawer} />
+      <MyDrawer isOpen={isOpen} toggleDrawer={toggleDrawer} />
     </AppBar>
   );
 }
