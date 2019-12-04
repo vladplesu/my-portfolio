@@ -44,7 +44,11 @@ export default function BottomAppBar() {
           onClick={toggleDrawer}>
           <MenuIcon />
         </IconButton>
-        <Fab color='secondary' aria-label='add' className={classes.fabButton}>
+        <Fab
+          color='secondary'
+          aria-label='add'
+          className={classes.fabButton}
+          href='/resume.pdf'>
           <GetAppIcon />
         </Fab>
       </Toolbar>
