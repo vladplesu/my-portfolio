@@ -19,6 +19,14 @@ const useStyles = makeStyles(() => ({
 export default ({ isOpen, toggleDrawer }) => {
   const classes = useStyles();
 
+  const handleClick = event => {
+    event.preventDefault();
+    const to = event.target.innerText.toLowerCase();
+    const anchorTarget = document.getElementById(`${to}-section`);
+    anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    toggleDrawer();
+  };
+
   return (
     <div>
       <Drawer anchor='bottom' open={isOpen} onClose={toggleDrawer}>
@@ -26,15 +34,15 @@ export default ({ isOpen, toggleDrawer }) => {
           <List>
             {['home', 'about', 'resume', 'skills', 'projects', 'contact'].map(
               text => (
-                <ListItem button key={text} onClick={toggleDrawer}>
-                  <ListItemText className={classes.listItem}>
-                    <Link
-                      href={`#${text}-section`}
-                      underline='none'
-                      color='textPrimary'>
-                      {text}
-                    </Link>
-                  </ListItemText>
+                <ListItem button key={text}>
+                  <ListItemText
+                    className={classes.listItem}
+                    onClick={handleClick}
+                    primary={
+                      <Link underline='none' color='textPrimary'>
+                        {text}
+                      </Link>
+                    }></ListItemText>
                 </ListItem>
               )
             )}
