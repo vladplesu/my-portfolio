@@ -4,7 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import CardWrapper from '../../components/CardWrapper';
 import Section from '../../components/Section';
-import { maxWidth } from '@material-ui/system';
+import Button from '@material-ui/core/Button';
+import GetAppIcon from '@material-ui/icons/GetApp';
 
 const useStyles = makeStyles(theme => ({
   gridItem: {
@@ -13,6 +14,11 @@ const useStyles = makeStyles(theme => ({
   col: {
     [theme.breakpoints.up('sm')]: {
       paddingRight: theme.spacing(2)
+    }
+  },
+  button: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
     }
   }
 }));
@@ -112,6 +118,16 @@ export default function ResumeWrapper() {
             ))}
           </Grid>
         </Grid>
+        <Box justifyContent='center' display='flex'>
+          <Button
+            variant='contained'
+            color='secondary'
+            className={classes.button}
+            href='/resume.pdf'>
+            <GetAppIcon />
+            Download CV
+          </Button>
+        </Box>
       </Box>
     </Section>
   );

@@ -84,6 +84,15 @@ export default function CarouselItem({
   imgUrl: imgName
 }) {
   const classes = useStyles();
+
+  const handleClick = event => {
+    console.log(event.currentTarget.hash);
+    event.preventDefault();
+    const anchorTarget = document.querySelector(event.currentTarget.hash);
+    console.log(anchorTarget);
+    anchorTarget.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className={classes.container}>
       <StyledBGImage imgName={imgName}>
@@ -97,10 +106,19 @@ export default function CarouselItem({
           </h1>
           {subTitle && <h2>{subTitle}</h2>}
           <ButtonGroup component='p'>
-            <Button variant='contained' color='secondary'>
+            <Button
+              variant='contained'
+              color='secondary'
+              href='#contact-section'
+              onClick={handleClick}>
               Contact Me
             </Button>
-            <Button variant='outlined'>My Work</Button>
+            <Button
+              variant='outlined'
+              href='#projects-section'
+              onClick={handleClick}>
+              My Work
+            </Button>
           </ButtonGroup>
         </div>
       </div>

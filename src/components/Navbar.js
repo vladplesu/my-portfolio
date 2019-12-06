@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     zIndex: 3,
-    padding: theme.spacing(1, 1.5),
+    padding: theme.spacing(1, 0),
     [theme.breakpoints.up('sm')]: {
       flexFlow: 'row nowrap',
       justifyContent: 'flex-start'
@@ -35,15 +35,21 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none',
     backgroundColor: 'transparent',
     whiteSpace: 'nowrap',
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(-1),
+    [theme.breakpoints.up('md')]: {
+      marginLeft: theme.spacing(-2)
+    }
   },
   navbarCollapse: {
     flexBasis: '100%',
     flexGrow: 1,
     alignItems: 'center',
+    marginRight: theme.spacing(-1),
     [theme.breakpoints.up('sm')]: {
       display: 'flex',
-      flexBasis: 'auto'
+      flexBasis: 'auto',
+      marginRight: theme.spacing(-2)
     }
   },
   navbarNav: {
@@ -67,7 +73,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: '-130px',
     background: '#000',
     boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.1)',
-    padding: '0 15px'
+    padding: 0
   },
   awake: {
     marginTop: 0,
@@ -81,8 +87,6 @@ const useStyles = makeStyles(theme => ({
 const StyledContainer = withStyles({
   root: {
     display: 'flex'
-    // paddingLeft: 0,
-    // paddingRight: 0
   }
 })(Container);
 

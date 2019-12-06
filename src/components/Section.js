@@ -2,10 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
-import GetAppIcon from '@material-ui/icons/GetApp';
 import Box from '@material-ui/core/Box';
-import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,15 +39,6 @@ export default function Section({
         </Typography>
       </Box>
       {children}
-      {/*<Hidden smDown>
-        <Button
-          variant='contained'
-          color='secondary'
-          className={classes.button}>
-          <GetAppIcon />
-          Download CV
-        </Button>
-      </Hidden>*/}
     </Container>
   );
 }
