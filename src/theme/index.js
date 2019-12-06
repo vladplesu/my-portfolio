@@ -13,6 +13,15 @@ const theme = createMuiTheme({
       light: '#ffef6c',
       dark: '#c78d00'
     }
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 576,
+      md: 768,
+      lg: 992,
+      xl: 1200
+    }
   }
 });
 

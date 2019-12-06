@@ -6,6 +6,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import Section from '../../components/Section';
+import Button from '@material-ui/core/Button';
+import GetAppIcon from '@material-ui/icons/GetApp';
 
 import maxImg from '../../images/max-duzij-qAjJk-un3BI-unsplash.jpg';
 import StyledBGImage from '../../components/BackgroundImage';
@@ -15,13 +17,13 @@ const useStyles = makeStyles(theme => ({
   root: {
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(0, 2),
-      maxWidth: '720px'
+      maxWidth: '576px'
     },
     [theme.breakpoints.up('md')]: {
-      maxWidth: '960px'
+      maxWidth: '768px'
     },
     [theme.breakpoints.up('lg')]: {
-      maxWidth: '1140px'
+      maxWidth: '992px'
     },
     margin: '0 auto'
   },
@@ -48,6 +50,12 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat'
+  },
+  button: {
+    marginLeft: theme.spacing(2),
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+    }
   }
 }));
 
@@ -94,6 +102,14 @@ export default function AboutWrapper() {
               </ListItem>
             ))}
           </List>
+          <Button
+            variant='contained'
+            color='secondary'
+            className={classes.button}
+            href='/resume.pdf'>
+            <GetAppIcon />
+            Download CV
+          </Button>
         </Section>
       </Grid>
     </Grid>

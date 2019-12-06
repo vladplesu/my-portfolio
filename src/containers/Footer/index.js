@@ -19,10 +19,10 @@ const useStyles = makeStyles(theme => ({
     margin: '0 auto',
     padding: theme.spacing(0, 2, 0),
     [theme.breakpoints.up('sm')]: {
-      maxWidth: '720px'
+      maxWidth: '768px'
     },
     [theme.breakpoints.up('md')]: {
-      maxWidth: '960px'
+      maxWidth: '992px'
     }
   },
   row: {
