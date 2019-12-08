@@ -67,7 +67,14 @@ export default function ContactWrapper() {
             <StyledBGImage imgName='max-duzij-qAjJk-un3BI-unsplash.jpg' />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <form noValidate autoComplete='off' className={classes.root}>
+            <form
+              noValidate
+              autoComplete='off'
+              className={classes.root}
+              name='contact'
+              method='post'
+              data-netlify='true'>
+              <input type='hidden' name='form-name' value='contact' />
               <div className={classes.container}>
                 <TextField
                   className={classes.textField}
@@ -103,6 +110,7 @@ export default function ContactWrapper() {
                   className={classes.button}
                   variant='contained'
                   color='secondary'
+                  type='submit'
                   fullWidth>
                   Send Message
                 </Button>
