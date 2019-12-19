@@ -140,9 +140,9 @@ export default function Navbar() {
                 `${itemName}-section`
               );
               const anchorTargetTop =
-                anchorTarget.getBoundingClientRect().top + curPos.y - 20;
+                anchorTarget.getBoundingClientRect().top + curPos.y - 250;
               const anchorTargetBottom =
-                anchorTarget.getBoundingClientRect().bottom + curPos.y - 20;
+                anchorTarget.getBoundingClientRect().bottom + curPos.y - 250;
               const isActive =
                 curPos.y < anchorTargetBottom && curPos.y >= anchorTargetTop;
               return (

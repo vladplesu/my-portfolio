@@ -21,9 +21,11 @@ export default ({ isOpen, toggleDrawer }) => {
 
   const handleClick = event => {
     event.preventDefault();
-    const to = event.target.innerText.toLowerCase();
+    const anchor = event.currentTarget.querySelector('a');
+    const to = anchor.innerText.toLowerCase();
     const anchorTarget = document.getElementById(`${to}-section`);
-    anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const top = anchorTarget.getBoundingClientRect().top;
+    window.scrollBy({ behavior: 'smooth', top });
     toggleDrawer();
   };
 
@@ -34,10 +36,9 @@ export default ({ isOpen, toggleDrawer }) => {
           <List>
             {['home', 'about', 'resume', 'skills', 'projects', 'contact'].map(
               text => (
-                <ListItem button key={text}>
+                <ListItem button key={text} onClick={handleClick}>
                   <ListItemText
                     className={classes.listItem}
-                    onClick={handleClick}
                     primary={
                       <Link underline='none' color='textPrimary'>
                         {text}
