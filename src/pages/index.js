@@ -11,10 +11,18 @@ import ProjectsWrapper from '../containers/Projects';
 import ContactsWrapper from '../containers/Contact';
 import FooterWrapper from '../containers/Footer';
 import theme from '../theme';
+import { Helmet } from 'react-helmet';
 
 export default () => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
+    <Helmet>
+      <title>Vlad Plesu</title>
+      <meta
+        name='description'
+        content='This is my personal portfolio as a frontend developer'
+      />
+    </Helmet>
     <Layout>
       <Appbar />
       <HomeWrapper />
