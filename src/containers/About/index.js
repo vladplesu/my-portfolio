@@ -8,8 +8,6 @@ import Grid from '@material-ui/core/Grid';
 import Section from '../../components/Section';
 import Button from '@material-ui/core/Button';
 import GetAppIcon from '@material-ui/icons/GetApp';
-
-import maxImg from '../../images/max-duzij-qAjJk-un3BI-unsplash.jpg';
 import StyledBGImage from '../../components/BackgroundImage';
 
 // Add custom styles variable
@@ -43,14 +41,6 @@ const useStyles = makeStyles(theme => ({
   imgContainer: {
     padding: theme.spacing(12, 0, 0)
   },
-  img: {
-    backgroundImage: `url(${maxImg})`,
-    width: '100%',
-    height: '100%',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat'
-  },
   button: {
     marginLeft: theme.spacing(2),
     [theme.breakpoints.down('xs')]: {
@@ -80,7 +70,6 @@ export default function AboutWrapper() {
   return (
     <Grid container className={classes.root}>
       <Grid item sm={6} lg={5} className={classes.imgContainer}>
-        {/**<div className={classes.img}></div>**/}
         <StyledBGImage imgName='max-duzij-qAjJk-un3BI-unsplash.jpg' />
       </Grid>
       <Grid item xs={12} sm={6} lg={7}>
